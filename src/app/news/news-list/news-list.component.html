@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Nadolazeći projekti</h3>
+    </div>
+</div>
+<!-- <button class="btn btn-primary" style="cursor: pointer;" (click)="onSaveNews()">Spremi</button>
+<button class="btn btn-primary" style="cursor: pointer;" (click)="onFetchNews()">Dohvati</button> -->
+<div class="row">
+    <div class="col-xs-12">
+        <app-news-item *ngFor="let newsElement of news; let i = index" [news]="newsElement" [index]="i">
+        </app-news-item>
+    </div>
+</div>

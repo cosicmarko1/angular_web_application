@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Prijašnji projekti</h3>
+        <h5>U navedenim projektima možete vidjeti kako izgleda izvođenje projekta od početka do kraja. Prikazani su
+            primjerci urbanih vila, stambenih i stambeno-poslovnih zgrada.</h5>
+        <h5>Sve dodatne upite vezane za kvadrature stanova i cijene možete dobiti na neke od navedenih kontaktnih
+            informacija u rubrici kontakt.</h5>
+        <hr>
+        <input class="form-control" type="text" placeholder="Pretraživanje po nazivu..." [(ngModel)]="searchText"><br>
+        <!-- <button class="btn btn-primary" style="cursor: pointer;" (click)="onSaveProjects()">Spremi</button>
+                <button class="btn btn-primary" style="cursor: pointer;" (click)="onFetchProjects()">Dohvati</button> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <app-project-item *ngFor="let project of projects | filter: searchText; let i = index" [projects]="project"
+            [index]="i">
+        </app-project-item>
+    </div>
+</div>

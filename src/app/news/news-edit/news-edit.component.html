@@ -1,0 +1,76 @@
+<br>
+<div class="row">
+    <div class="col-xs-10">
+        <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-10">
+                    <button type="submit" class="btn btn-success" (ngSubmit)="onSubmit()"
+                        [disabled]="!newsForm.valid">Spremi</button>
+                    <button type="button" class="btn btn-primary" (click)="onDeleteNewsElement()">Ukloni</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Poništi</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="form-group">
+                        <label for="name">Naziv projekta</label>
+                        <input type="text" id="name" formControlName="name" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="form-group">
+                        <label for="imagePath">URL fotografije</label>
+                        <input type="text" id="imagePath" formControlName="imagePath" class="form-control" #imagePath>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <img [src]="imagePath.value" class="img-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="form-group">
+                        <label for="description">Opis</label>
+                        <textarea type="text" id="description" formControlName="description" class="form-control"
+                            rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10" formArrayName="partners">
+                    <div class="row" *ngFor="let newsCtrl of controls; let i = index" [formGroupName]="i"
+                        style="margin-top: 10px;">
+                        <div class="col-xs-6">
+                            <select formControlName="name" class="form-control">
+                                <option>Partner/suradnik</option>
+                                <option *ngFor="let partner of partners">{{ partner.name }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xs-4 form-group">
+                            <select formControlName="description" class="form-control"
+                                (click)="onSelectPartnerDescription($event)">
+                                <option>Opis djelatnosti</option>
+                                <option *ngFor="let partner of partners">{{ partner.description }}</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="button" class="btn btn-danger" (click)="onDeleteElement(i)">X</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-success" (click)="onAddPartner()">Dodaj
+                                izvođača</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

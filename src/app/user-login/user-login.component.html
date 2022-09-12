@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                    <h6>Unesite email i lozinku</h6>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <label for="email" class="formLabel">Email adresa</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            formControlName="email">
+                        <span class="text-danger"
+                            *ngIf="loginForm.controls['email'].touched && loginForm.hasError('required', 'email')">
+                            *Unos email adrese je obavezan!</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="formLabel">Lozinka</label>
+                        <input type="password" class="form-control" id="password" formControlName="password">
+                        <span class="text-danger"
+                            *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required', 'password')">
+                            *Unos lozinke je obavezan!</span>
+                    </div>
+                    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Prijava</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

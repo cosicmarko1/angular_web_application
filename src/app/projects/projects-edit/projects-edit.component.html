@@ -1,0 +1,34 @@
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" type="submit" [disabled]="!f.valid">{{ editMode ? 'Ažuriraj' :
+                        'Spremi' }}</button>
+                    <button class="btn btn-danger" type="button" (click)="onDelete()">Ukloni</button>
+                    <button class="btn btn-primary" type="button" (click)="onClear()">Poništi</button>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <label for="name">Naziv projekta</label>
+                    <input type="text" id="name" class="form-control" name="name" ngModel required>
+                </div>
+                <div class="col-xs-12 form-group">
+                    <label for="description">Opis</label>
+                    <input type="text" id="description" class="form-control" name="description" ngModel required>
+                </div>
+                <div class="col-xs-12 form-group">
+                    <label for="imagePath">URL fotografije</label>
+                    <input type="text" id="imagePath" class="form-control" name="imagePath" ngModel required #imagePath>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <img [src]="imagePath.value" class="img-responsive" style="max-height: 250px; max-width: 250px;">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

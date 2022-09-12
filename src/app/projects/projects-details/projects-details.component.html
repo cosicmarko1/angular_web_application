@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{ projects.name }}</h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        {{ projects.description }}
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <img src="{{ projects.imagePath }}" class="img-responsive" style="max-height: 300px; max-width: 400px;">
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <app-images-bakaceva *ngIf="id === 0"></app-images-bakaceva>
+        <app-images-muraviceva *ngIf="id === 1"></app-images-muraviceva>
+        <app-images-gunduliceva *ngIf="id === 2"></app-images-gunduliceva>
+        <app-images-teslina *ngIf="id === 3"></app-images-teslina>
+        <app-images-strossmayerova *ngIf="id === 4"></app-images-strossmayerova>
+    </div>
+</div>
